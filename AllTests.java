@@ -119,4 +119,28 @@ public class AllTests {
 
         System.out.println(GREEN + "FarmingRobot tests passed.\n" + RESET);
     }
+
+    public static void testDoctorRobot() {
+        DoctorRobot doctorRobot = new DoctorRobot("1", "DocBot");
+
+        assert doctorRobot.getId() == "1" : "ID should be 1";
+        assert "DocBot".equals(doctorRobot.getName()) : "Name should be DocBot";
+
+        System.out.println(GREEN + "Expected: DocBot is providing medical care." + RESET);
+        doctorRobot.doWork();
+
+        System.out.println(GREEN + "DoctorRobot tests passed.\n" + RESET);
+    }
+
+    public static void testNurseRobot() {
+        NurseRobot nurseRobot = new NurseRobot("2", "NurseBot");
+
+        assert nurseRobot.getId() == "2" : "ID should be 2";
+        assert "NurseBot".equals(nurseRobot.getName()) : "Name should be NurseBot";
+
+        System.out.println(GREEN + "Expected: NurseBot is providing nursing care." + RESET);
+        nurseRobot.doWork();
+
+        System.out.println(GREEN + "NurseRobot tests passed.\n" + RESET);
+    }
 }

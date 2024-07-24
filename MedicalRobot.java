@@ -7,6 +7,4 @@ public interface MedicalRobot {
      * @return health status of the checked Animal
      */
     public String dailyCheck(Animal animal);
-
-    void care();
 }

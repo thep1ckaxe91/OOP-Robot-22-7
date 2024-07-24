@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class NurseRobot extends Robot implements HealthRobot {
+public class NurseRobot extends Robot implements MedicalRobot {
     private List<Animal> responsibleAnimals = new ArrayList<>();
 
     public NurseRobot(String id, String name) {
@@ -26,11 +26,11 @@ public class NurseRobot extends Robot implements HealthRobot {
         double chance = Math.random() * 100;
         String response;
         if (chance < 5) {
-            response = animal.getId() + " Clean status: " + HealthRobot.CRITICAL_STATUS;
+            response = animal.getId() + " Clean status: " + MedicalRobot.CRITICAL_STATUS;
         } else if (chance < 50) {
-            response = animal.getId() + " Clean status: " + HealthRobot.BAD_STATUS;
+            response = animal.getId() + " Clean status: " + MedicalRobot.BAD_STATUS;
         } else {
-            response = animal.getId() + " Clean status: " + HealthRobot.GOOD_STATUS;
+            response = animal.getId() + " Clean status: " + MedicalRobot.GOOD_STATUS;
         }
         return response;
     }
