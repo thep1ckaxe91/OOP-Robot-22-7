@@ -9,6 +9,9 @@ public class AllTests {
         testTeam();
         testTeamManagement();
         testFarmingRobot();
+        testDoctorRobot();
+        testNurseRobot();
+        testZoo();
 
         System.out.println(GREEN + "All tests passed.\n" + RESET);
     }
@@ -142,5 +145,55 @@ public class AllTests {
         nurseRobot.doWork();
 
         System.out.println(GREEN + "NurseRobot tests passed.\n" + RESET);
+    }
+
+    public static void testZoo() {
+        // Test constructors
+        Zoo zoo1 = new Zoo();
+        assert "Zoo".equals(zoo1.getName()) : "Default zoo name should be 'Zoo'";
+
+        Zoo zoo2 = new Zoo("Safari");
+        assert "Safari".equals(zoo2.getName()) : "Zoo name should be 'Safari'";
+
+        TeamManagement teamManagement = new TeamManagement();
+        Zoo zoo3 = new Zoo("National Zoo", teamManagement);
+        assert "National Zoo".equals(zoo3.getName()) : "Zoo name should be 'National Zoo'";
+        assert teamManagement.equals(zoo3.getTeamManagement()) : "Team management should be the same";
+
+        // Test getName and setName
+        Zoo zoo = new Zoo("Wildlife Zoo");
+        assert "Wildlife Zoo".equals(zoo.getName()) : "Zoo name should be 'Wildlife Zoo'";
+        zoo.setName("Urban Zoo");
+        assert "Urban Zoo".equals(zoo.getName()) : "Zoo name should be 'Urban Zoo'";
+
+        // Test addAnimal
+        Fish f = new Fish(2, "10293801283", "Cage1");
+        zoo.addAnimal(f);
+        assert zoo.getAnimal("10293801283") != null : "Fish should be added to the zoo";
+
+        // Test removeAnimal
+        zoo.removeAnimal("10293801283");
+        assert zoo.getAnimal("10293801283") == null : "Lion should be removed from the zoo";
+
+        // Test getAnimal
+        zoo.addAnimal(f);
+        assert f.equals(zoo.getAnimal("10293801283")) : "Should return the lion";
+
+        // Test totalAnimals
+        Turtle t = new Turtle(11, "182739", "Cage1");
+        zoo.addAnimal(f);
+        zoo.addAnimal(t);
+        assert zoo.totalAnimals() == 2 : "Total animals should be 2";
+
+        // Test getSwimmingAnimals
+        assert zoo.getSwimmingAnimals() == 2 : "There should be 3 swimming animals";
+
+        // Test getWalkingAnimals
+        assert zoo.getWalkingAnimals() == 1 : "There should be 2 walking animals";
+
+        // Test getWalkingSwimmingAnimals
+        assert zoo.getWalkingSwimmingAnimals() == 1 : "There should be 2 animals that can walk and swim";
+
+        System.out.println(GREEN + "Zoo tests passed.\n" + RESET);
     }
 }

@@ -1,10 +1,62 @@
 import java.util.ArrayList;
 
 public class Zoo {
+    private String name;
+    private TeamManagement teamManagement = new TeamManagement();
     private ArrayList<Animal> animals = new ArrayList<>();
 
+    /**
+     * Constructor for Zoo
+     */
     public Zoo() {
         animals = new ArrayList<>();
+        teamManagement = new TeamManagement();
+        name = "Zoo";
+    }
+
+    /**
+     * Constructor for Zoo
+     * @param name  name of the zoo
+     */
+    public Zoo(String name) {
+        animals = new ArrayList<>();
+        teamManagement = new TeamManagement();
+        this.name = name;
+    }
+
+    /**
+     * Constructor for Zoo
+     * @param name              name of the zoo
+     * @param teamManagement    team management of the zoo
+     */
+    public Zoo(String name, TeamManagement teamManagement) {
+        animals = new ArrayList<>();
+        this.teamManagement = teamManagement;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public TeamManagement getTeamManagement() {
+        return teamManagement;
+    }
+
+    /**
+     * Show all team of the zoo.
+     * @param team  the team to be added
+     */
+    public void showAllRobot() {
+        for (Team team : teamManagement.getTeams()) {
+            for (Robot robot : team.getRobots()) {
+                System.out.println(robot.getId() + " " + robot.getName());
+            }
+        }
     }
 
     /**
@@ -17,6 +69,7 @@ public class Zoo {
                 return;
             }
         }
+        animals.add(animal);
     }
 
     /**
@@ -100,6 +153,20 @@ public class Zoo {
         long counter = 0;
         for (Animal a : animals) {
             if (a.canWalk()) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    /**
+     * Get the number of animals that can walk and swim.
+     * @return      the number of animals that can walk and swim
+     */
+    public long getWalkingSwimmingAnimals() {
+        long counter = 0;
+        for (Animal a : animals) {
+            if (a.canWalk() && a.canSwim()) {
                 counter++;
             }
         }
