@@ -11,7 +11,7 @@ public class FishRobot extends Robot implements FarmingRobot {
      * @param id        id of the robot
      * @param name      name of the robot
      */
-    public FishRobot(long id, String name) {
+    public FishRobot(String id, String name) {
         super(id, name);
     }
 

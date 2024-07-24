@@ -11,7 +11,7 @@ public class TreeRobot extends Robot implements FarmingRobot {
      * @param id        id of the robot
      * @param name      name of the robot
      */
-    public TreeRobot(long id, String name) {
+    public TreeRobot(String id, String name) {
         super(id, name);
     }
 
