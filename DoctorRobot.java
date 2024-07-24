@@ -12,12 +12,12 @@ public class DoctorRobot extends Robot implements HealthRobot {
 
     public DoctorRobot(String id, String name, List<Animal> responsibleAnimals) {
         super(id, name);
-        this.responsibleAnimals = responsibleAnimals;
+        this.responsibleAnimals = (ArrayList<Animal>) responsibleAnimals;
     }
 
     @Override
     public void doWork() {
-        System.out.println(String.format("Doctor %s report:\n", this.getId()));
+        System.out.println(String.format("Doctor %s health report:\n", this.getId()));
         for (Animal animal : responsibleAnimals) {
             System.out.println(this.dailyCheck(animal));
         }
