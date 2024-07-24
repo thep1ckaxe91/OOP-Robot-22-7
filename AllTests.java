@@ -15,15 +15,13 @@ public class AllTests {
 
     public static void testRobot() {
         Robot robot = new TreeRobot();
-        assert robot.getId() == 0 : "ID should be 0";
-        assert "<blank>".equals(robot.getName()) : "Name should be <blank>";
 
-        robot = new FishRobot(1, "FishBot");
-        assert robot.getId() == 1 : "ID should be 1";
+        robot = new FishRobot("1", "FishBot");
+        assert robot.getId() == "1" : "ID should be 1";
         assert "FishBot".equals(robot.getName()) : "Name should be FishBot";
 
-        robot.setId(2);
-        assert robot.getId() == 2 : "ID should be 2";
+        robot.setId("2");
+        assert robot.getId() == "2" : "ID should be 2";
         robot.setName("FishMaster");
         assert "FishMaster".equals(robot.getName()) : "Name should be FishMaster";
 
@@ -31,13 +29,13 @@ public class AllTests {
     }
 
     public static void testTreeRobot() {
-        TreeRobot treeRobot = new TreeRobot(1, "TreeBot");
+        TreeRobot treeRobot = new TreeRobot("1", "TreeBot");
 
-        assert treeRobot.getId() == 1 : "ID should be 1";
+        assert treeRobot.getId() == "1" : "ID should be 1";
         assert "TreeBot".equals(treeRobot.getName()) : "Name should be TreeBot";
 
-        treeRobot.setId(2);
-        assert treeRobot.getId() == 2 : "ID should be 2";
+        treeRobot.setId("2");
+        assert treeRobot.getId() == "2" : "ID should be 2";
 
         treeRobot.setName("TreeMaster");
         assert "TreeMaster".equals(treeRobot.getName()) : "Name should be TreeMaster";
@@ -50,13 +48,13 @@ public class AllTests {
     }
 
     public static void testFishRobot() {
-        FishRobot fishRobot = new FishRobot(2, "FishBot");
+        FishRobot fishRobot = new FishRobot("2", "FishBot");
 
-        assert fishRobot.getId() == 2 : "ID should be 2";
+        assert fishRobot.getId() == "2" : "ID should be 2";
         assert "FishBot".equals(fishRobot.getName()) : "Name should be FishBot";
 
-        fishRobot.setId(3);
-        assert fishRobot.getId() == 3 : "ID should be 3";
+        fishRobot.setId("3");
+        assert fishRobot.getId() == "3" : "ID should be 3";
 
         fishRobot.setName("FishMaster");
         assert "FishMaster".equals(fishRobot.getName()) : "Name should be FishMaster";
@@ -73,19 +71,22 @@ public class AllTests {
 
         assert "Alpha".equals(team.getTeamName()) : "Team name should be Alpha";
 
-        Robot robot = new TreeRobot(1, "TreeBot");
+        Robot robot = new TreeRobot("1", "TreeBot");
         team.addRobot(robot);
         assert team.getRobots().contains(robot) : "Robot should be in the team";
 
-        team.removeRobot(1);
+        team.removeRobot("1");
         assert !team.getRobots().contains(robot) : "Robot should not be in the team";
 
         team.addRobot(robot);
-        Robot retrievedRobot = team.getRobotById(1);
+        Robot retrievedRobot = team.getRobotById("1");
         assert robot.equals(retrievedRobot) : "Retrieved robot should be the same as added robot";
 
-        retrievedRobot = team.getRobotById(99);
+        retrievedRobot = team.getRobotById("99");
         assert retrievedRobot == null : "Non-existent robot should return null";
+
+        String expectedHeader = "********** WELCOME TO ***********\n************* Alpha *************\n";
+        assert expectedHeader.equals(team.welcomeHeader()) : "Welcome header should be correct";
 
         System.out.println(GREEN + "Team tests passed.\n" + RESET);
     }
@@ -111,7 +112,7 @@ public class AllTests {
     }
 
     public static void testFarmingRobot() {
-        FarmingRobot farmingRobot = new TreeRobot(1, "TreeBot");
+        FarmingRobot farmingRobot = new TreeRobot("1", "TreeBot");
 
         farmingRobot.harvest();
         farmingRobot.process();
