@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Zoo {
-    private ArrayList<Animal> animals;
+    private ArrayList<Animal> animals = new ArrayList<>();
 
     public Zoo() {
         animals = new ArrayList<>();
