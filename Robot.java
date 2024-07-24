@@ -1,14 +1,15 @@
 public abstract class Robot {
-    private long id;
-    private String name;
+    private String id;
 
-    public long getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
+
+    private String name;
 
     public String getName() {
         return this.name;
@@ -19,17 +20,17 @@ public abstract class Robot {
     }
 
     public Robot() {
-        this.id = 0;
+        this.id = null;
         this.name = "<blank>";
     }
 
     /**
      * Initializes a new instance of the Robot
      * 
-     * @param id id of the robot
+     * @param id   id of the robot
      * @param name name of the robot
      */
-    public Robot(long id, String name) {
+    public Robot(String id, String name) {
         this.id = id;
         this.name = name;
     }
