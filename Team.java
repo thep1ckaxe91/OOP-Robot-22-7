@@ -38,7 +38,7 @@ public class Team {
      */
     public void addRobot(Robot robot) {
         for (Robot r : robots) {
-            if (r.getId().equals(robot.getId())) {
+            if (r.getId() == robot.getId()) {
                 return;
             }
         }
@@ -49,9 +49,9 @@ public class Team {
      * Remove a robot from the team.
      * @param id        the id of the robot to be removed   
      */
-    public void removeRobot(String id) {
+    public void removeRobot(long id) {
         for (Robot r : robots) {
-            if (r.getId().equals(id)) {
+            if (r.getId() == id) {
                 robots.remove(r);
                 return;
             }

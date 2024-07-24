@@ -1,4 +1,16 @@
 public class FishRobot extends Robot implements FarmingRobot {
+    /**
+     * Default constructor
+     */
+    public FishRobot() {
+        super();
+    }
+
+    /**
+     * Constructor for FishRobot.
+     * @param id        id of the robot
+     * @param name      name of the robot
+     */
     public FishRobot(long id, String name) {
         super(id, name);
     }

@@ -1,4 +1,16 @@
 public class TreeRobot extends Robot implements FarmingRobot {
+    /**
+     * Default constructor
+     */
+    public TreeRobot() {
+        super();
+    }
+
+    /**
+     * Constructor for TreeRobot.
+     * @param id        id of the robot
+     * @param name      name of the robot
+     */
     public TreeRobot(long id, String name) {
         super(id, name);
     }
