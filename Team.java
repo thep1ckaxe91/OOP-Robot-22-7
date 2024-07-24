@@ -123,4 +123,12 @@ public class Team {
         return wt + (this.name.length() % 2 == 0 ? "" : "*") + "\n" + teamName + "\n";
     }
 
+    /**
+     * get all the robots do its job
+     */
+    public void dispatchWork() {
+        for (Robot robot : this.robots) {
+            robot.doWork();
+        }
+    }
 }
